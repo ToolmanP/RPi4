@@ -1,12 +1,12 @@
 [submodule "edk2"]
 	path = edk2
-	url = https://github.com/tianocore/edk2.git
+	url = git@github.com:ToolmanP/edk2.git
 	branch = master
 [submodule "edk2-platforms"]
 	path = edk2-platforms
-	url = https://github.com/tianocore/edk2-platforms.git
-	branch = master
+	url = git@github.com:ToolmanP/edk2-platforms.git
+	branch = usand 
 [submodule "edk2-non-osi"]
 	path = edk2-non-osi
-	url = https://github.com/tianocore/edk2-non-osi.git
-	branch = master
+	url = git@github.com:ToolmanP/edk2-non-osi.git
+	branch = usand
