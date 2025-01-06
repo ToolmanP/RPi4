@@ -24,7 +24,7 @@ case "$1" in
 	"build")
 		shift
 		export WORKSPACE=$PWD
-		export GCC5_AARCH64_PREFIX=aarch64-unknown-linux-gnu-
+		export GCC5_AARCH64_PREFIX=aarch64-linux-gnu-
 		export PACKAGES_PATH=$WORKSPACE/edk2:$WORKSPACE/edk2-platforms:$WORKSPACE/edk2-non-osi
 		export BUILD_FLAGS="-D SECURE_BOOT_ENABLE=TRUE -D INCLUDE_TFTP_COMMAND=TRUE -D NETWORK_ISCSI_ENABLE=TRUE -D SMC_PCI_SUPPORT=1"
 		export TLS_DISABLE_FLAGS="-D NETWORK_TLS_ENABLE=FALSE -D NETWORK_ALLOW_HTTP_CONNECTIONS=TRUE"
@@ -32,7 +32,7 @@ case "$1" in
 
 		. edk2/edksetup.sh
 
-		build -a AARCH64 -t GCC5 -b DEBUG -n$(nproc) -p edk2-platforms/Platform/RaspberryPi/RPi4/RPi4.dsc --pcd gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor=L"https://github.com/pftf/RPi4" --pcd gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString=L"UEFI Firmware v1.81" ${BUILD_FLAGS} ${DEFAULT_KEYS} ${TLS_DISABLE_FLAGS}
+		build -a AARCH64 -t GCC5 -Y COMPILE_INFO -y build_report -b DEBUG -n$(nproc)  -p edk2-platforms/Platform/RaspberryPi/RPi4/RPi4.dsc --pcd gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor=L"https://github.com/pftf/RPi4" --pcd gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString=L"UEFI Firmware v1.81" ${BUILD_FLAGS} ${DEFAULT_KEYS} ${TLS_DISABLE_FLAGS}
 
 		TLS_DISABLE_FLAGS=""
 
