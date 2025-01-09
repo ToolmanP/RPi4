@@ -2,3 +2,4 @@ Build/
 keys/
 *.fd
 build_report
+.cache
